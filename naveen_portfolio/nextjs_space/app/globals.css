@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* GTA Vice City palette — dark theme */
+    --background: 230 50% 6%;       /* #0A0E1A deep navy */
+    --foreground: 0 0% 95%;         /* near-white */
+
+    --card: 230 40% 10%;            /* #121830 dark card */
+    --card-foreground: 0 0% 95%;
+
+    --primary: 340 100% 57%;        /* #FF2D78 neon pink */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 100% 60%;       /* #FF6B35 neon orange */
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 180 100% 41%;         /* #00CED1 teal */
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 230 30% 15%;           /* dark muted */
+    --muted-foreground: 230 10% 55%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 30% 18%;
+    --input: 230 30% 18%;
+    --ring: 340 100% 57%;
+
+    --radius: 0.625rem;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.6);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.7);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(230 50% 6%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(340 100% 57% / 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(340 100% 57% / 0.7);
+}
+
+/* Neon glow utility */
+.neon-glow {
+  text-shadow: 0 0 7px hsl(340 100% 57% / 0.6), 0 0 20px hsl(340 100% 57% / 0.3), 0 0 42px hsl(340 100% 57% / 0.1);
+}
+
+.neon-glow-teal {
+  text-shadow: 0 0 7px hsl(180 100% 41% / 0.6), 0 0 20px hsl(180 100% 41% / 0.3);
+}
+
+/* GTA loading bar animation */
+@keyframes gtaLoad {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.gta-load-bar {
+  animation: gtaLoad 3s ease-in-out forwards;
+}
+
+/* Story ring gradient */
+.story-ring {
+  background: conic-gradient(from 0deg, hsl(340 100% 57%), hsl(20 100% 60%), hsl(180 100% 41%), hsl(340 100% 57%));
+}
+
+/* Parallax helper */
+.parallax-container {
+  perspective: 1000px;
+  overflow: hidden;
+}
